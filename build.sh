@@ -31,5 +31,5 @@ tar xzf $SRC_DIR/$SOURCE_FILE -C $WORKSPACE
 echo "Going to $WORKSPACE/$NAME-$VERSION"
 cd $WORKSPACE/$NAME-$VERSION
 ls
-./boostrap
+./bootstrap
 make
