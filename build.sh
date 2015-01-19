@@ -25,7 +25,11 @@ if [[ ! -e $SRC_DIR/$SOURCE_FILE ]] ; then
 else
   echo "continuing from previous builds, using source at " $SRC_DIR/$SOURCE_FILE
 fi
-tar -xzf $SRC_DIR/$SOURCE_FILE -C $WORKSPACE
+ls -lht $SRC_DIR/$SOURCE_FILE
+echo "extracting the tarball"
+tar xzf $SRC_DIR/$SOURCE_FILE -C $WORKSPACE
+echo "Going to $WORKSPACE/$NAME-$VERSION"
 cd $WORKSPACE/$NAME-$VERSION
+ls
 ./boostrap
 make
