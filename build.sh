@@ -31,5 +31,5 @@ tar xzf $SRC_DIR/$SOURCE_FILE -C $WORKSPACE
 echo "Going to $WORKSPACE/$NAME-$VERSION"
 cd $WORKSPACE/$NAME-$VERSION
 ls
-./bootstrap
-cmake . -G Unix Makefiles -DCMAKE_INSTALL_PREFIX=$SOFT_DIR
+./bootstrap --prefix=$SOFT_DIR
+make
