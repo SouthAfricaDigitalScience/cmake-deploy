@@ -33,3 +33,6 @@ MODULE_FILE
 
 mkdir -p $LIBRARIES_MODULES/$NAME
 cp modules/$VERSION $LIBRARIES_MODULES/$NAME
+
+module add ci
+which cmake
