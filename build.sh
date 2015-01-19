@@ -21,7 +21,7 @@ mkdir -p $SOFT_DIR
 if [[ ! -e $SRC_DIR/$SOURCE_FILE ]] ; then
   echo "seems like this is the first build - let's get the source"
   mkdir -p $SRC_DIR
-  wget http://$URL/$SOURCE_FILE -O $SRC_DIR/$SOURCE_FILE
+  wget $URL/$SOURCE_FILE -O $SRC_DIR/$SOURCE_FILE
 else
   echo "continuing from previous builds, using source at " $SRC_DIR/$SOURCE_FILE
 fi
