@@ -32,4 +32,4 @@ echo "Going to $WORKSPACE/$NAME-$VERSION"
 cd $WORKSPACE/$NAME-$VERSION
 ls
 ./bootstrap
-make
+cmake . -G Unix Makefiles -DCMAKE_INSTALL_PREFIX=$SOFT_DIR

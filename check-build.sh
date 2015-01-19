@@ -2,7 +2,6 @@
 module load ci
 echo "checking $NAME"
 cd $WORKSPACE/$NAME-$VERSION
-make check
 
 echo $?
 
