@@ -25,7 +25,7 @@ if [ ! -e ${SRC_DIR}/${SOURCE_FILE}${SRC_DIR}/${SOURCE_FILE}.lock ] && [ ! -s ${
   wget https://cmake.org/files/v3.4/${SOURCE_FILE} -O ${SRC_DIR}/${SOURCE_FILE}
   echo "releasing lock"
   rm -v ${SRC_DIR}/${SOURCE_FILE}${SRC_DIR}/${SOURCE_FILE}.lock
-else if [ -e ${SRC_DIR}/${SOURCE_FILE}${SRC_DIR}/${SOURCE_FILE}.lock ; then
+else if [ -e ${SRC_DIR}/${SOURCE_FILE}${SRC_DIR}/${SOURCE_FILE}.lock ] ; then
   # Someone else has the file, wait till it's released
   echo " There seems to be a download currently under way, will check again in 5 sec"
   sleep 5
