@@ -1,7 +1,8 @@
 #!/bin/bash
+. /etc/profile.d/modules.sh
 module load ci
 echo "checking $NAME"
-cd $WORKSPACE/$NAME-$VERSION
+cd ${WORKSPACE}/${NAME}-${VERSION}
 
 echo $?
 
@@ -27,7 +28,7 @@ prepend-path GCC_INCLUDE_DIR   $::env(CMAKE_DIR)/include
 MODULE_FILE
 ) > modules/$VERSION
 
-mkdir -p $LIBRARIES_MODULES/$NAME
-cp modules/$VERSION $LIBRARIES_MODULES/$NAME
+mkdir -p ${LIBRARIES_MODULES}/${NAME}
+cp modules/${VERSION} ${LIBRARIES_MODULES}/${NAME}
 module add cmake
 which cmake
