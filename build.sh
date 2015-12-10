@@ -41,8 +41,8 @@ ls -lht ${SRC_DIR}/${SOURCE_FILE}
 echo "extracting the tarball"
 tar xzf ${SRC_DIR}/${SOURCE_FILE} -C ${WORKSPACE}
 echo "Going to ${WORKSPACE}/${NAME}-${VERSION}"
-mkdir -p ${WORKSPACE}/${NAME}-${VERSION}/build
-cd ${WORKSPACE}/${NAME}-${VERSION}/build
+mkdir -p ${WORKSPACE}/${NAME}-${VERSION}/build-${BUILD_DIR}
+cd ${WORKSPACE}/${NAME}-${VERSION}/build-${BUILD_DIR}
 ls
 ./bootstrap --prefix=${SOFT_DIR}
 make
