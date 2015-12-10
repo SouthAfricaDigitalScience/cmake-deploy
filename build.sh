@@ -39,7 +39,7 @@ else
 fi
 ls -lht ${SRC_DIR}/${SOURCE_FILE}
 echo "extracting the tarball"
-tar xzf ${SRC_DIR}/${SOURCE_FILE} -C ${WORKSPACE}
+tar xzf ${SRC_DIR}/${SOURCE_FILE} -C ${WORKSPACE} --skip-old-files
 echo "Going to ${WORKSPACE}/${NAME}-${VERSION}"
 mkdir -p ${WORKSPACE}/${NAME}-${VERSION}/build-${BUILD_DIR}
 cd ${WORKSPACE}/${NAME}-${VERSION}/build-${BUILD_DIR}
