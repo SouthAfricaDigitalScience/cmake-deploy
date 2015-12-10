@@ -44,5 +44,5 @@ echo "Going to ${WORKSPACE}/${NAME}-${VERSION}"
 mkdir -p ${WORKSPACE}/${NAME}-${VERSION}/build-${BUILD_DIR}
 cd ${WORKSPACE}/${NAME}-${VERSION}/build-${BUILD_DIR}
 ls
-./bootstrap --prefix=${SOFT_DIR}
+../bootstrap --prefix=${SOFT_DIR}
 make

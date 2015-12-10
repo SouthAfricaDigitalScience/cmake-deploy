@@ -6,8 +6,8 @@ module add bzip2
 module add zlib
 
 cd ${WORKSPACE}/${NAME}-${VERSION}/build-${BUILD_NUMBER}
-ls
-./bootstrap --prefix=${SOFT_DIR}
+rm -rf *
+../bootstrap --prefix=${SOFT_DIR}
 make -j2
 make install
 
