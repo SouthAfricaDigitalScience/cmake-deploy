@@ -1,15 +1,18 @@
-#!/bin/bash
+#!/bin/bash -e
+
 . /etc/profile.d/modules.sh
-module add ci
+module add deploy
 module add bzip2
 module add zlib
-echo "checking $NAME"
+
 cd ${WORKSPACE}/${NAME}-${VERSION}/build-${BUILD_NUMBER}
-make test -j2
-echo $?
+ls
+./bootstrap --prefix=${SOFT_DIR}
+make -j2
 make install
 
-mkdir -p modules
+echo "making module"
+
 (
 cat <<MODULE_FILE
 #%Module1.0
@@ -21,9 +24,9 @@ proc ModulesHelp { } {
 }
 module add bzip2
 module add zlib
-module-whatis   "$NAME $VERSION."
+module-whatis   "$NAME $VERSION. See https://github.com/SouthAfricaDigitalScience/cmake-deploy"
 setenv       CMAKE_VERSION       $VERSION
-setenv       CMAKE_DIR           /apprepo/$::env(SITE)/$::env(OS)/$::env(ARCH)/$NAME/$VERSION
+setenv       CMAKE_DIR         $::env(CVMFS_DIR)$::env(SITE)/$::env(OS)/$::env(ARCH)/$NAME/$VERSION
 prepend-path PATH              $::env(CMAKE_DIR)/bin
 prepend-path LD_LIBRARY_PATH   $::env(CMAKE_DIR)/lib
 prepend-path GCC_INCLUDE_DIR   $::env(CMAKE_DIR)/include

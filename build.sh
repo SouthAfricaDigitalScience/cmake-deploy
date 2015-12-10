@@ -3,6 +3,8 @@
 SOURCE_FILE=${NAME}-${VERSION}.tar.gz
 
 module load ci
+module add bzip2
+module add zlib
 
 echo "REPO_DIR is "
 echo ${REPO_DIR}
@@ -39,7 +41,8 @@ ls -lht ${SRC_DIR}/${SOURCE_FILE}
 echo "extracting the tarball"
 tar xzf ${SRC_DIR}/${SOURCE_FILE} -C ${WORKSPACE}
 echo "Going to ${WORKSPACE}/${NAME}-${VERSION}"
-cd ${WORKSPACE}/${NAME}-${VERSION}
+mkdir -p ${WORKSPACE}/${NAME}-${VERSION}/build
+cd ${WORKSPACE}/${NAME}-${VERSION}/build
 ls
 ./bootstrap --prefix=${SOFT_DIR}
 make
