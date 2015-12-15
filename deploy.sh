@@ -33,7 +33,7 @@ prepend-path GCC_INCLUDE_DIR   $::env(CMAKE_DIR)/include
 MODULE_FILE
 ) > modules/$VERSION
 
-mkdir -p ${LIBRARIES_MODULES}/${NAME}
-cp modules/${VERSION} ${LIBRARIES_MODULES}/${NAME}
+mkdir -p ${COMPILERS_MODULES}/${NAME}
+cp modules/${VERSION} ${COMPILERS_MODULES}/${NAME}
 module add cmake
 which cmake
