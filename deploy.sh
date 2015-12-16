@@ -12,7 +12,7 @@ make -j2
 make install
 
 echo "making module"
-
+mkdir -p modules
 (
 cat <<MODULE_FILE
 #%Module1.0
