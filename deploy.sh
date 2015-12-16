@@ -26,7 +26,7 @@ module add bzip2
 module add zlib
 module-whatis   "$NAME $VERSION. See https://github.com/SouthAfricaDigitalScience/cmake-deploy"
 setenv       CMAKE_VERSION       $VERSION
-setenv       CMAKE_DIR         $::env(CVMFS_DIR)$::env(SITE)/$::env(OS)/$::env(ARCH)/$NAME/$VERSION
+setenv       CMAKE_DIR         $::env(CVMFS_DIR)/$::env(SITE)/$::env(OS)/$::env(ARCH)/$NAME/$VERSION
 prepend-path PATH              $::env(CMAKE_DIR)/bin
 prepend-path LD_LIBRARY_PATH   $::env(CMAKE_DIR)/lib
 prepend-path GCC_INCLUDE_DIR   $::env(CMAKE_DIR)/include
