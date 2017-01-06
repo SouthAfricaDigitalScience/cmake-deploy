@@ -44,5 +44,5 @@ echo "Going to ${WORKSPACE}/${NAME}-${VERSION}"
 mkdir -p ${WORKSPACE}/${NAME}-${VERSION}/build-${BUILD_NUMBER}
 cd ${WORKSPACE}/${NAME}-${VERSION}/build-${BUILD_NUMBER}
 ls
-../bootstrap --prefix=${SOFT_DIR}
-make
+../bootstrap --prefix=${SOFT_DIR} 
+make -j2
