@@ -23,7 +23,7 @@ module add bzip2
 module add zlib
 module-whatis   "$NAME $VERSION."
 setenv       CMAKE_VERSION       $VERSION
-setenv       CMAKE_DIR           $::env(SOFT_DIR)
+setenv       CMAKE_DIR           /data/ci-build/$::env(SITE)/$::env(OS)/$::env(ARCH)/$NAME/$VERSION
 prepend-path PATH              $::env(CMAKE_DIR)/bin
 prepend-path LD_LIBRARY_PATH   $::env(CMAKE_DIR)/lib
 prepend-path GCC_INCLUDE_DIR   $::env(CMAKE_DIR)/include
