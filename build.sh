@@ -2,7 +2,7 @@
 . /etc/profile.d/modules.sh
 SOURCE_FILE=${NAME}-${VERSION}.tar.gz
 
-module load ci
+module add ci
 module add bzip2
 module add zlib
 
@@ -19,12 +19,18 @@ mkdir -p ${WORKSPACE}
 mkdir -p ${SRC_DIR}
 mkdir -p ${SOFT_DIR}
 
+# Cmake source repo has a directory structure that has one leve for the major.minor version
+# we need to compute the major and minor versions before constructing the download path
+
+# VERSON_MAJOR is VERSION.MAJOR
+VERSION_MAJOR=${VERSION:0:3}
+
 # if the file has not been claimed and the file is not empty, download it - else wait until
 if [ ! -e ${SRC_DIR}/${SOURCE_FILE}.lock ] && [ ! -s ${SRC_DIR}/${SOURCE_FILE} ] ; then
 # claim the download
   touch  ${SRC_DIR}/${SOURCE_FILE}.lock
   echo "seems like this is the first build - let's get the source"
-  wget https://cmake.org/files/v3.4/${SOURCE_FILE} -O ${SRC_DIR}/${SOURCE_FILE}
+  wget https://cmake.org/files/v${VERSION_MAJOR}/${SOURCE_FILE} -O ${SRC_DIR}/${SOURCE_FILE}
   echo "releasing lock"
   rm -v ${SRC_DIR}/${SOURCE_FILE}.lock
 elif [ -e ${SRC_DIR}/${SOURCE_FILE}.lock ] ; then
@@ -44,5 +50,5 @@ echo "Going to ${WORKSPACE}/${NAME}-${VERSION}"
 mkdir -p ${WORKSPACE}/${NAME}-${VERSION}/build-${BUILD_NUMBER}
 cd ${WORKSPACE}/${NAME}-${VERSION}/build-${BUILD_NUMBER}
 ls
-../bootstrap --prefix=${SOFT_DIR} 
+../bootstrap --prefix=${SOFT_DIR}
 make -j2
