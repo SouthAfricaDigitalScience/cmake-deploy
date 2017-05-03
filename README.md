@@ -7,3 +7,5 @@ Build, test and deploy scripts necessary to deploy [CMake](https://cmake.org).
 # Versions
 
 We build the latest stable version.
+
+# Citing
