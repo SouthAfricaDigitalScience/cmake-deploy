@@ -16,7 +16,6 @@
 . /etc/profile.d/modules.sh
 module add deploy
 module add bzip2
-module add zlib
 
 cd ${WORKSPACE}/${NAME}-${VERSION}/build-${BUILD_NUMBER}
 rm -rf *
@@ -36,7 +35,6 @@ proc ModulesHelp { } {
     puts stderr "       that the [module-info name] module is not available"
 }
 module add bzip2
-module add zlib
 module-whatis   "$NAME $VERSION. See https://github.com/SouthAfricaDigitalScience/cmake-deploy"
 setenv       CMAKE_VERSION       $VERSION
 setenv       CMAKE_DIR         $::env(CVMFS_DIR)/$::env(SITE)/$::env(OS)/$::env(ARCH)/$NAME/$VERSION

@@ -18,7 +18,6 @@ SOURCE_FILE=${NAME}-${VERSION}.tar.gz
 
 module add ci
 module add bzip2
-module add zlib
 module add curl
 
 echo "REPO_DIR is "
@@ -68,4 +67,4 @@ ls
 ../bootstrap \
 --prefix=${SOFT_DIR} \
 --no-qt-gui
-make -j2
+make

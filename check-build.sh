@@ -16,7 +16,6 @@
 . /etc/profile.d/modules.sh
 module add ci
 module add bzip2
-module add zlib
 echo "checking $NAME"
 cd ${WORKSPACE}/${NAME}-${VERSION}/build-${BUILD_NUMBER}
 #make test -j2
@@ -34,7 +33,6 @@ proc ModulesHelp { } {
     puts stderr "       that the [module-info name] module is not available"
 }
 module add bzip2
-module add zlib
 module-whatis   "$NAME $VERSION."
 setenv       CMAKE_VERSION       $VERSION
 setenv       CMAKE_DIR           /data/ci-build/$::env(SITE)/$::env(OS)/$::env(ARCH)/$NAME/$VERSION
