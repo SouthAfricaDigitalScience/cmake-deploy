@@ -17,8 +17,8 @@
 module add ci
 module add bzip2
 echo "checking $NAME"
-cd ${WORKSPACE}/${NAME}-${VERSION}/build-${BUILD_NUMBER}
-#make test -j2
+cd ${WORKSPACE}/${NAME}-${VERSION}
+make test
 echo $?
 make install
 

@@ -17,10 +17,10 @@
 module add deploy
 module add bzip2
 
-cd ${WORKSPACE}/${NAME}-${VERSION}/build-${BUILD_NUMBER}
-rm -rf *
-../bootstrap --prefix=${SOFT_DIR}
-make -j2
+cd ${WORKSPACE}/${NAME}-${VERSION}
+make distclean
+CXX=c++ ../bootstrap --prefix=${SOFT_DIR}
+make
 make install
 
 echo "making module"
