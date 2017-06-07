@@ -64,7 +64,7 @@ echo "Going to ${WORKSPACE}/${NAME}-${VERSION}"
 mkdir -p ${WORKSPACE}/${NAME}-${VERSION}/build-${BUILD_NUMBER}
 cd ${WORKSPACE}/${NAME}-${VERSION}/build-${BUILD_NUMBER}
 ls
-../bootstrap \
+CXX=c++ ../bootstrap \
 --prefix=${SOFT_DIR} \
 --no-qt-gui
 make
