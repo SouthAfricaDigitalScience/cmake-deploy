@@ -63,7 +63,7 @@ tar xzf ${SRC_DIR}/${SOURCE_FILE} -C ${WORKSPACE} --skip-old-files
 echo "Going to ${WORKSPACE}/${NAME}-${VERSION}"
 cd ${WORKSPACE}/${NAME}-${VERSION}
 ls
-CXX=c++ ./bootstrap \
+CXX=c++ MAKE=make ./bootstrap \
 --prefix=${SOFT_DIR} \
 --no-qt-gui
 make
