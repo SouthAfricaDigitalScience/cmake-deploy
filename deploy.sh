@@ -19,7 +19,9 @@ module add bzip2
 
 cd ${WORKSPACE}/${NAME}-${VERSION}
 make clean
-CXX=c++ ../bootstrap --prefix=${SOFT_DIR}
+LDFLAGS=-L${CURL_DIR}/lib OBJECT_MODE=64 CXX=c++ MAKE=make ./bootstrap \
+--prefix=${SOFT_DIR} \
+--no-qt-gui
 make
 make install
 
