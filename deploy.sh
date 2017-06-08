@@ -18,7 +18,7 @@ module add deploy
 module add bzip2
 
 cd ${WORKSPACE}/${NAME}-${VERSION}
-make distclean
+make clean
 CXX=c++ ../bootstrap --prefix=${SOFT_DIR}
 make
 make install
